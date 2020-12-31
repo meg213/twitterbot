@@ -1,0 +1,51 @@
+const request = require('request');
+const cheerio = require('cheerio');
+
+
+request('http://www.scifiideas.com/planet-generator/', (error, response, html) => {
+	if (!error && response.statusCode == 200){
+	    const $ = cheerio.load(html);
+	    const name = $(.<div class="post-content box mark-links">
+			   <p>Looking for an idea for an alien planet, or a unique planet name? Perhaps you are writing a sci-fi story and you need an interesting setting, or perhaps you need a location for a role-playing game in a hurry. The SciFi Ideas Planet Generator randomly creates names and descriptions for alien worlds, giving you the inspiration you need. Donœôòùt like the planet youœôòùve been given? Simply refresh the page to generate another random world.<br>
+</p><div class="break_line"></div><p></p>
+<h3>Planet Generator<a href="http://rpg.drivethrustuff.com/index.php?manufacturers_id=5372"><img class="alignright size-full wp-image-5457" src="http://i0.wp.com/www.scifiideas.com/wp-content/uploads/2012/10/bannerbutton-dtrpg.gif?zoom=2&amp;resize=150%2C45" alt="bannerbutton-dtrpg" width="150" height="45" srcset="http://i0.wp.com/www.scifiideas.com/wp-content/uploads/2012/10/bannerbutton-dtrpg.gif?zoom=2&amp;resize=150%2C45" src-orig="http://i0.wp.com/www.scifiideas.com/wp-content/uploads/2012/10/bannerbutton-dtrpg.gif?resize=150%2C45" scale="2"></a></h3>
+			   <p><strong>Planet Name:</strong> Vandia
+<br class="clear">
+
+			   <strong>Location:</strong> Vakshaa System
+<br class="clear">
+
+			   <strong>Description:</strong> A desert world with a breathable nitrogen/oxygen atmosphere. There are no continents, but there are several small seas and lakes. Indigenous life is limited to single-celled organisms. Humans, along with several other alien governments, have established penal colonies on this world.<br>
+			   </p><div class="break_line"></div><em><strong><a title="Generate another planet" href="http://www.scifiideas.com/planet-generator/">Refresh the page</a>&nbsp;for more randomly generated planets.</strong></em><br>
+<div class="break_line"></div><p></p>
+			   <p>Like this? Try our <a title="Alien Species Generator" href="http://www.scifiideas.com/alien-species-generator/">Alien Species Generator</a>&nbsp;and our <a href="http://www.scifiideas.com/spaceship-generator/">Spaceship Generator!</a></p>
+			   <div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><div class="sd-content"><ul><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-6856" class="share-facebook sd-button share-icon no-text" href="http://www.scifiideas.com/planet-generator/?share=facebook&amp;nb=1" target="_blank" title="Click to share on Facebook"><span><span class="share-count">49</span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)<span class="share-count">49</span></span></a></li><li class="share-pocket"><a rel="nofollow" data-shared="" class="share-pocket sd-button share-icon no-text" href="http://www.scifiideas.com/planet-generator/?share=pocket&amp;nb=1" target="_blank" title="Click to share on Pocket"><span></span><span class="sharing-screen-reader-text">Click to share on Pocket (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://www.scifiideas.com/planet-generator/?share=reddit&amp;nb=1" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-6856" class="share-twitter sd-button share-icon no-text" href="http://www.scifiideas.com/planet-generator/?share=twitter&amp;nb=1" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-end"></li>
+	    
+	}
+    }
+);
+
+
+/**
+const rp = require('request-promise');
+const cheerio = require('cheerio');
+var uri = 'https://www.scifiideas.com/planet-generator/'
+const options = {
+    uri: 'https://www.scifiideas.com/planet-generator/',
+    transform: function (body) {
+	return cheerio.load(body);
+    }
+};
+
+rp(options)
+    .then(($) => {
+	    var $ = cheerio.load(uri),
+	    name = $("<strong>Planet Name:</strong>").text();
+	    // console.log(name);
+	    console.log( $('<strong>').text());
+	    //    console.log($);
+	})
+    .catch((err) => {
+	    console.log(err);
+	});
+**/

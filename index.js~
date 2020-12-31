@@ -1,0 +1,35 @@
+const request = require('request');
+const cheerio = require('cheerio');
+
+
+request('http://www.scifiideas.com/planet-generator/', (error, responce, html) => {
+	if (!error && response.statusCode == 200){
+	    console.log(html);
+	}
+    }
+);
+
+
+/**
+const rp = require('request-promise');
+const cheerio = require('cheerio');
+var uri = 'https://www.scifiideas.com/planet-generator/'
+const options = {
+    uri: 'https://www.scifiideas.com/planet-generator/',
+    transform: function (body) {
+	return cheerio.load(body);
+    }
+};
+
+rp(options)
+    .then(($) => {
+	    var $ = cheerio.load(uri),
+	    name = $("<strong>Planet Name:</strong>").text();
+	    // console.log(name);
+	    console.log( $('<strong>').text());
+	    //    console.log($);
+	})
+    .catch((err) => {
+	    console.log(err);
+	});
+**/

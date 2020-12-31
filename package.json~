@@ -1,0 +1,23 @@
+{
+  "name": "morgan-twitterbot",
+  "version": "1.0.0",
+  "description": "A project for LMC 2700",
+  "main": "app.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meg213/twitterbot.git"
+  },
+  "author": "Morgan Gomez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meg213/twitterbot/issues"
+  },
+  "homepage": "https://github.com/meg213/twitterbot#readme",
+  "dependencies": {
+    "node-twitterbot": "^0.2.2",
+    "twit": "^2.2.11"
+  }
+}

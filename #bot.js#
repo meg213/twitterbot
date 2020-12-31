@@ -1,0 +1,41 @@
+var Twit = require('twit');
+var T = new Twit(require('./config.js'));
+var T = new Twit(require('./config.js'));
+var Canvas = require('canvas');
+var Image = Canvas.Image;
+
+var canvas = Canvas.createCanvas(600, 600);
+var context = canvas.getContext('2d');
+
+var r = Math.floor((Math.random() * 256));
+var g = Math.floor((Math.random() * 256));
+var b = Math.floor((Math.random() * 256));
+var color = "rgb("+r+","+g+","+b+")";
+
+var radius = Math.floor((Math.random() * 200));
+   
+
+    context.backgroundColor="red";
+    context.fillStyle = color;
+    context.beginPath();
+    context.arc(300, 300, radius, 0, Math.PI * 2, false);
+    context.fill();
+
+
+var fs = require('fs')
+    ,  out = fs.createWriteStream(__dirname + '/text.png')   
+    , stream = canvas.pngStream();
+
+var dataUrl = canvas.pngStream().pipe(out);
+
+T.post('media/upload', { media_data: canvas.toBuffer().toString('base64') }, function (err, data, response) {
+
+  //reference the media and post a tweet (media will attach to the tweet)
+  var mediaIdStr = data.media_id_string
+      var params = { status: 'test', media_ids: [mediaIdStr] }
+
+  T.post('statuses/update', params, function (err, data, response) {
+	  console.log(data)
+	      })
+      })
+
